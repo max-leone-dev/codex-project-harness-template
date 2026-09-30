@@ -94,6 +94,9 @@ Subagents default to off. A plan approval, high-effort request, or permission to
 ## Git Checkpoints
 
 - Work on a focused branch unless the project profile explicitly uses another model.
+- Multiple machines or contributors may work concurrently on separate branches, but exactly one coordinated integration operation may advance the shared `main` branch at a time.
+- Before advancing `main`, fetch the remote state, confirm the intended accepted branches or tags, integrate them one at a time, rerun the relevant verification, and confirm the pushed remote SHA. Other machines fetch and reconcile after that push before beginning another integration.
+- An unpushed local `main` commit is not shared state. If integration pauses, preserve the candidate on a named branch and restore local `main` to the remote tip so another machine cannot mistake the candidate for accepted repository state.
 - Commit accepted milestones, pre-risk restore points, and intentional pauses.
 - Do not mix unrelated user work into a commit.
 - Before integration, verify the accepted commit, relevant tests, clean diff, and remote state.

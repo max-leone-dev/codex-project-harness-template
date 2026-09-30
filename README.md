@@ -40,6 +40,7 @@ call metered services, or spawn subagents until the project contract is clear.
 - Work begins with a bounded objective and explicit acceptance criteria.
 - Each meaningful behavior has one clear owner.
 - Verification scales with risk and is reported honestly.
+- Concurrent contributors isolate work on branches while one coordinated integration owner advances shared `main`.
 - External spend, remote generation, and delegation require explicit approval.
 - Decisions and incidents are recorded only when they should survive a new task.
 - Domain rules extend the generic harness instead of being baked into it.
