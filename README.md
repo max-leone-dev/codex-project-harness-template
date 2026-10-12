@@ -10,6 +10,7 @@ This is the reusable base layer. Each repository adds its own domain profile for
 - `_project/HANDOFF.md`: current state and restart context.
 - `_project/PROJECT_PROFILE.md`: project purpose, stack, commands, constraints, and definition of done.
 - `_project/WORKFLOW.md`: bounded work, verification, external-service consent, and closeout rules.
+- `_project/MACHINE_CONTINUITY.md`: durable cross-machine state, branch ownership, transfer checkpoints, and integration rules.
 - `_project/ARCHITECTURE.md`: lightweight ownership and structure guidance.
 - `_project/DECISIONS.md`: durable project decisions.
 - `_project/INCIDENTS.md`: operational failures and verified resolutions.
@@ -41,6 +42,7 @@ call metered services, or spawn subagents until the project contract is clear.
 - Each meaningful behavior has one clear owner.
 - Verification scales with risk and is reported honestly.
 - Concurrent contributors isolate work on branches while one coordinated integration owner advances shared `main`.
+- Git and the project handoff carry durable context across machines; credentials, local paths, and raw Codex state remain host-local.
 - External spend, remote generation, and delegation require explicit approval.
 - Decisions and incidents are recorded only when they should survive a new task.
 - Domain rules extend the generic harness instead of being baked into it.

@@ -94,14 +94,19 @@ Subagents default to off. A plan approval, high-effort request, or permission to
 ## Git Checkpoints
 
 - Work on a focused branch unless the project profile explicitly uses another model.
+- A working branch has one active machine or contributor owner at a time. Transfer ownership only after a clean, pushed checkpoint records the exact branch and commit.
 - Multiple machines or contributors may work concurrently on separate branches, but exactly one coordinated integration operation may advance the shared `main` branch at a time.
 - Before advancing `main`, fetch the remote state, confirm the intended accepted branches or tags, integrate them one at a time, rerun the relevant verification, and confirm the pushed remote SHA. Other machines fetch and reconcile after that push before beginning another integration.
 - An unpushed local `main` commit is not shared state. If integration pauses, preserve the candidate on a named branch and restore local `main` to the remote tip so another machine cannot mistake the candidate for accepted repository state.
+- When the repository supports pull requests, open a draft early for concurrent work. Record the source branch, base `main` SHA, branch owner, intended integration owner, verification, and unresolved dependencies there.
+- Do not use force-push, destructive reset, or automatic conflict resolution as a machine-synchronization mechanism.
 - Commit accepted milestones, pre-risk restore points, and intentional pauses.
 - Do not mix unrelated user work into a commit.
 - Before integration, verify the accepted commit, relevant tests, clean diff, and remote state.
 - Use an immutable tag for releases, shelves, archives, or other important return points.
 - Delete dormant branches after their accepted tips are integrated and protected, unless the handoff records a reason to retain them.
+
+Follow `_project/MACHINE_CONTINUITY.md` when moving work between machines, coordinating concurrent branches, pausing an integration, or recovering from stale or divergent state.
 
 ## Timeouts And Failures
 

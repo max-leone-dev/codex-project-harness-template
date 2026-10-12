@@ -6,6 +6,7 @@ Read these next when relevant:
 
 - `_project/PROJECT_PROFILE.md` for purpose, stack, constraints, and commands
 - `_project/WORKFLOW.md` for scope, verification, authorization, and closeout
+- `_project/MACHINE_CONTINUITY.md` for cross-machine state, branch ownership, and integration
 - `_project/ARCHITECTURE.md` for ownership, structure, and refactor triggers
 - `_project/DECISIONS.md` for durable project choices
 - `_project/INCIDENTS.md` for unresolved or recurring operational failures
@@ -19,6 +20,8 @@ Operating rules:
 - Give each meaningful behavior one clear owner and keep policy separate from adapters and presentation.
 - Verify changes at a depth appropriate to their risk; report anything not verified.
 - Never expose secrets or commit local credentials, tokens, private keys, or machine-specific configuration.
+- Treat Git refs plus `_project/HANDOFF.md` as canonical across machines; never synchronize raw Codex state or credentials between hosts.
+- Let only one machine or contributor own a working branch at a time, and only one coordinated integration operation advance shared `main`.
 - Treat metered services and remote generation as zero-budget until the human explicitly approves an exact call sequence and maximum spend.
 - Default to zero subagents. Do not spawn one unless the human explicitly authorizes a bounded delegation in the current task after its purpose and expected count are stated.
 - For every authorized subagent, record its id, purpose, and authorization; close it immediately after collecting its result; audit that no task-owned collaborator remains open before the parent task finishes.
