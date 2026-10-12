@@ -65,7 +65,7 @@ Useful read-only checks include:
 git status --short --branch
 git remote -v
 git rev-parse HEAD
-git rev-parse @{upstream}
+git rev-parse '@{upstream}'
 ```
 
 A successful push is not enough if the handoff is stale, required local assets are missing, or the remote ref was not verified.
