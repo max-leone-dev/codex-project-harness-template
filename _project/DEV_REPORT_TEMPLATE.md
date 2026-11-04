@@ -1,9 +1,18 @@
 # Development Report
 
+Append to or link the existing dev brief; do not create duplicate reports.
+
 ## Objective
 
-- Milestone or task:
-- Observable result:
+- Brief/issue and reviewed revision:
+- Intended observable result and original reference:
+
+## Intent Check
+
+- Promises met and evidence:
+- Established behavior preserved:
+- Misses, required steering or deviations (including before recovery):
+- Status: implemented | verified | human-accepted | integrated/released
 
 ## Changes
 
@@ -14,6 +23,8 @@
 - Checks run:
 - Results:
 - Not verified:
+- Failures: product | driver/fixture | environment | unknown; first diagnostic and any secondary errors
+- Remaining limits, holds and protected evidence:
 
 ## External Activity
 

@@ -14,6 +14,10 @@ Use the smallest structure that gives every meaningful responsibility an obvious
 6. **Dependencies point inward.** Volatile integrations depend on stable project logic, not the reverse.
 7. **Optimize for replacement.** An experiment, vendor, UI, or transport should be removable without rewriting unrelated behavior.
 8. **Shared code is earned.** Extract reuse only after at least two real consumers demonstrate the same stable need.
+9. **Humans can change the code.** Prefer clear names, direct control flow and
+   visible tuning values over clever compression or speculative frameworks.
+   Explain non-obvious invariants; do not narrate obvious assignments. A maintainer
+   should be able to find and safely tweak a behavior without an agent's memory.
 
 ## Repository Structure
 

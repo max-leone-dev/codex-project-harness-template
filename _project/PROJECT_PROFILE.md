@@ -40,6 +40,9 @@ Replace every bracketed value before implementation begins.
 - Functional acceptance: `[what must work]`
 - Verification minimum: `[tests and checks required before handoff]`
 - Human review gates: `[where judgment or physical-device review is authoritative]`
+- Delivery review policy: `[owner, authorized peer, direct for bounded fixes, or a combination; explicit overrides]`
+- Publication and merge gates: `[what may be pushed privately/publicly, who approves merge and release]`
+- Verification limits and evidence: `[runtime/attempt/storage limits if needed; what must be preserved and where]`
 - Supported platforms or hardware: `[matrix]`
 
 ## Domain Guidance
