@@ -29,11 +29,24 @@ Never copy or synchronize raw Codex state, credentials, locks, or caches between
 ## Branch Ownership
 
 - One machine or contributor owns a working branch at a time.
-- Multiple machines may work concurrently when they use separate branches.
+- One active writer owns each checkout. Concurrent writers need separate
+  worktrees/clones and owned branches, including on the same machine. Branch names
+  do not isolate a shared working directory or staging index.
+- Read-only reviewers may inspect an identified revision. A worktree does not
+  isolate sibling repositories, ignored evidence or external data/services.
+- Verify actual cwd, Git top-level, branch, remote and dirty state before edits.
+  Chat/project labels do not establish filesystem identity or permissions.
+- Never switch, stash, reset, clean or commit another writer's checkout. Stage
+  explicit owned files/hunks and review the full staged diff.
 - Do not make independent commits on the same branch and use force-push or conflict automation to pretend the histories were one stream.
 - Transfer branch ownership only after the departing owner commits, pushes, verifies the remote SHA, and records the checkpoint.
 - Treat an unpushed commit as local recovery state, not shared project state.
 - Open a draft pull request early when concurrent contributors need a shared status surface. Keep its base SHA, branch owner, verification, unresolved dependencies, and integration readiness current.
+
+When moving a writer to another checkout, agree a safe stop and inventory tracked,
+untracked and necessary ignored files plus active processes. Worktree creation
+does not transfer unfinished files. Preserve and verify the transfer before
+releasing the source; confirm the receiving chat's actual cwd and access.
 
 ## Host Setup
 
@@ -88,7 +101,7 @@ Do not reset a destination checkout merely to make it resemble the source. Prese
 
 Many branches may progress at the same time. Shared `main` has one integration owner during each merge window.
 
-1. Each contributor branches from a known `origin/main` commit and records that base in the draft pull request or handoff.
+1. Each contributor uses a separate checkout/worktree and branches from a known `origin/main` commit, recording that base in the draft pull request or handoff.
 2. Contributors push only their owned branches while work is under review.
 3. Before integration, the designated owner fetches current refs and reviews all known active contributions for dependency or overlap.
 4. Integrate one accepted branch or tag at a time into the latest `main`.
@@ -132,4 +145,4 @@ A recovery is complete only when the intended worktree is clean, the expected re
 
 ## Harness Self-Governance
 
-Shared harnesses, templates, and infrastructure repositories follow the same rules they publish. Maintain them through focused branches and draft pull requests, keep one owner per branch, use one integration owner for `main`, verify the remote result, and let other hosts reconcile before continuing their own contribution.
+Shared harnesses, templates, and infrastructure repositories follow the same rules they publish. Maintain them through focused branches and draft pull requests, keep one writer per checkout and branch, use one integration owner for `main`, verify the remote result, and let other hosts reconcile before continuing their own contribution.
